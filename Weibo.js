@@ -139,7 +139,7 @@ function ParseWeibo(obj) {
             let Title = '@'
             if (wbs[i].user) Title += wbs[i].user.screen_name
             let releaseTime = new Date(wbs[i].created_at).getTime()
-            let subTitile = '⌚️ ' + new Date(wbs[i].created_at).Format("MM/dd hh:mm:ss")
+            let subTitile = 'Time: ' + new Date(wbs[i].created_at).Format("MM/dd hh:mm:ss")
             let open = $.openlink + wbs[i].bid
             let showimg = wbs[i].user ? wbs[i].user.profile_image_url : 'https://tvax2.sinaimg.cn/crop.0.0.1006.1006.1024/4242e8adly8gdirb4e9q2j20ry0rytbp.jpg'
             let detail = ''
@@ -183,7 +183,8 @@ function ParseWeibo(obj) {
                 }
             }
             detail += '\n\n👉🏼 点击跳转至全文及原微博。'
-            if (releaseTime > $.update) $.notify(Title, subTitile, detail, open, showimg)
+            // if (releaseTime > $.update) $.notify(Title, subTitile, detail, open, showimg)
+            if (releaseTime > $.update) $.notify(Title, subTitile, open, showimg)
         //})
     }
 }
